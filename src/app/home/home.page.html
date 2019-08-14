@@ -1,14 +1,31 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>
-      Ionic Blank
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content>
-  <div class="ion-padding">
-    The world is your oyster.
-    <p>If you get lost, the <a target="_blank" rel="noopener" href="https://ionicframework.com/docs/">docs</a> will be your guide.</p>
+<ion-content >
+  
+  
+  <div *ngIf="picture">
+    <img [src]="picture">
+    <ion-fab vertical="bottom" horizontal="center" slot="fixed" (click)="startCamera()">
+      <ion-fab-button>
+        <ion-icon name="camera"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
   </div>
+
+<div *ngIf="!picture">
+
+
+  <ion-fab vertical="bottom" class="ion-padding-bottom" horizontal="center" slot="fixed" (click)="takePicture()">
+    <ion-fab-button color="danger">
+      
+    </ion-fab-button>
+  </ion-fab>
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed" (click)="startCamera()">
+      <ion-fab-button color="">
+        <ion-icon name="reverse-camera" color="undefined"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+</div>
+
+
 </ion-content>
